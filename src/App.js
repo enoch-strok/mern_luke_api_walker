@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react';
+import {Router} from '@reach/router';
+
+import MasterRouter from './components/MasterRouter.jsx';
+
+
+
 
 function App() {
+
+  const [state, setState] = useState([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <h1>This is App.js</h1> */}
+      <Router>
+          <MasterRouter state={state} setState={setState} path="/:category/:id" />
+      </Router>
     </div>
   );
 }
